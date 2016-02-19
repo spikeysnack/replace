@@ -1,0 +1,23 @@
+@import url("base.css");
+
+h1 {
+	color: #6040c0;
+}
+body {
+	color: black;
+	background-color: SeaShell;
+	background-image: url('button_blue.png');
+}
+
+#content {
+    background-color: SeaShell; 
+}
+
+}
+a.imaged {
+	background-image: url('button.gif');
+}
+a.imaged:hover {
+	background-image: url('button.gif');
+}
+

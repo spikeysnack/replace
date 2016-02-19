@@ -1,0 +1,143 @@
+.\" Manpage for replace.
+.\" Contact spikeysnack@gmail.com to correct errors or typos.
+.ft Helvetica
+.TH man 1 "07 Nov 2015" "1.5" "replace man page"
+
+.SH NAME
+replace	\- batch rename a list of files 
+
+.SH SYNOPSIS
+\fBreplace\fP	[-a] [-f] [-n \fI<int>\fP] [-t] [-q] [-v] [match] [replacement] [file list]
+
+		[-h]
+
+		[-u] [-v] [-t]
+
+		[-V]
+.SH DESCRIPTION 
+.P
+.TP
+replace renames files. 
+.P
+It substitutes one string of characters in the file names for another.
+.P
+replace takes as input a matching string, a replacement string, 
+and a list of filenames.
+.P
+It replaces from one to all occurances of the matching string 
+with the replacement string in a given list of file names, 
+then renames the matching files accordingly.
+.P
+It is designed to be flexible yet careful not to destroy files.  
+It will not rename files to bad or impossible filenames.
+.P 
+It implements one level of undo via an undo file. 
+The undo-file is created and placed in the user's home directory. 
+.P
+(default: $HOME/.replace/replace_undo)
+.SH OPTIONS
+.TP
+\fB-a    --all\fP      replace all matches in each filename
+.TP
+\fB-f    --force\fP    do not ask Y/N before renaming files
+.TP    
+\fB-h    --help\fR     print this message
+.TP
+\fB-n \fI<int>\fP   --num \fI<int>\fR     replace up to n matches per filename 
+.TP
+\fB-t    --test\fP    test mode -- do not actually change filenames 
+.TP
+\fB-q    --quiet\fP   rename files with no output 
+.TP
+\fB-u    --undo \fP   reverse the last run of replace 
+.TP
+\fB-v    --verbose\fP  print out lots of things as they happen 
+.TP
+\fB-V    --version\fP  print out version 
+.SH EXAMPLES
+replace  .txt .doc *
+.RS
+.RS
+.TP
+change suffix of all txt files to doc 
+.RE
+.RE
+replace  2105  2015 *
+.RS
+.RS
+.TP
+fix a typo in filenames 
+.RE
+.RE
+replace  -t -v  -n 2  00 0 *.jpg      
+.HP
+.RS
+.RS
+.P
+.TP
+test only the result(s) of 
+.TP
+replacing a double-zero with a single one
+.TP
+with a max of two matches per file, 
+.TP for .jpg files.
+.TP
+002_CONCERT_007002.jpg ==> O2_CONCERT_07002.jpg  
+.RE
+.RE
+.RS
+.TP
+(hint:  use * for all files in dir) 
+.RE
+replace -uvf           
+.RS
+.TP
+undo the last rename operation
+.TP
+print out operations
+.TP
+do not stop for user input (Y/N)
+.RE
+.SH FILES
+.TP
+/usr/local/bin/replace
+.RI
+program binary
+.TP
+$HOME/.replace/replace_undo
+.RI
+user undo file (overwritten each run)
+.TP
+/usr/local/share/man/man1/replace.1 
+.RI
+man page for replace
+.TP
+/usr/local/share/doc/replace/
+.RI
+documentation for replace
+.RE
+.SH SEE ALSO
+rename(1)  
+.SH BUGS
+.P
+Edge cases:
+.RS
+Substitutions may attempt to rename files to names that already exist in the path.
+The replace program will abort before any files are destroyed or overwritten. 
+This could lead to a situation wherein some files are renamed, and some are not.
+.P
+Multiple sequential runs of the undo function are not reflexive.
+To redo after an undo you must re-run replace with the original parameters.
+.P
+The undo file is updated for each successful rename, but only for the last complete run. 
+It is recommended to use the -t test flag before any complicated operation.
+That way you may judge the results before executing a batch rename command.
+.RE
+.SH AUTHOR
+.RS
+Chris Reid (spikeysnack@gmail.com)
+.RE
+.SH COPYRIGHT
+.RS
+Free for non-commercial use.
+.RE

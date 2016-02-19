@@ -1,0 +1,120 @@
+man(1)                         replace man page                         man(1)
+
+
+
+NNAAMMEE
+       replace   - batch rename a list of files
+
+
+SSYYNNOOPPSSIISS
+       rreeppllaaccee   [-a]  [-f]  [-n  _<_i_n_t_>]  [-t] [-q] [-v] [match] [replacement]
+       [file list]
+
+                 [-h]
+
+                 [-u] [-v] [-t]
+
+                 [-V]
+
+DDEESSCCRRIIPPTTIIOONN
+       replace renames files.
+
+       It substitutes one string of characters in the file names for another.
+
+       replace takes as input a matching string, a replacement string,  and  a
+       list of filenames.
+
+       It  replaces from one to all occurances of the matching string with the
+       replacement string in a given list of  file  names,  then  renames  the
+       matching files accordingly.
+
+       It  is  designed  to  be flexible yet careful not to destroy files.  It
+       will not rename files to bad or impossible filenames.
+
+       It implements one level of undo via an undo  file.   The  undo-file  is
+       created and placed in the user's home directory.
+
+       (default: $HOME/.replace/replace_undo)
+
+OOPPTTIIOONNSS
+       --aa    ----aallll      replace all matches in each filename
+
+       --ff    ----ffoorrccee    do not ask Y/N before renaming files
+
+       --hh    ----hheellpp     print this message
+
+       --nn _<_i_n_t_>   ----nnuumm _<_i_n_t_>     replace up to n matches per filename
+
+       --tt    ----tteesstt    test mode -- do not actually change filenames
+
+       --qq    ----qquuiieett   rename files with no output
+
+       --uu    ----uunnddoo    reverse the last run of replace
+
+       --vv    ----vveerrbboossee  print out lots of things as they happen
+
+       --VV    ----vveerrssiioonn  print out version
+
+EEXXAAMMPPLLEESS
+       replace  .txt .doc *
+
+                     change suffix of all txt files to doc
+       replace  2105  2015 *
+
+                     fix a typo in filenames
+       replace  -t -v  -n 2  00 0 *.jpg
+
+
+
+                     test only the result(s) of
+
+                     replacing a double-zero with a single one
+
+                     with a max of two matches per file,
+
+
+                     002_CONCERT_007002.jpg  ==>  O2_CON‐
+                     CERT_07002.jpg
+
+              (hint:  use * for all files in dir)
+       replace -uvf
+
+              undo the last rename operation
+
+              print out operations
+
+              do not stop for user input (Y/N)
+
+SSEEEE AALLSSOO
+       rename(1)
+
+BBUUGGSS
+       Edge cases:
+              Substitutions may attempt to  rename  files
+              to  names  that  already exist in the path.
+              The replace program will abort  before  any
+              files  are  destroyed or overwritten.  This
+              could lead  to  a  situation  wherein  some
+              files are renamed, and some are not.
+
+              Multiple  sequential runs of the undo func‐
+              tion are not reflexive.  To redo  after  an
+              undo you must re-run replace with the orig‐
+              inal parameters.
+
+              The undo file is updated for each  success‐
+              ful  rename, but only for the last complete
+              run.  It is recommended to use the -t  test
+              flag   before  any  complicated  operation.
+              That way you may judge the  results  before
+              executing a batch rename command.
+
+AAUUTTHHOORR
+              Chris Reid (spikeysnack@gmail.com)
+
+CCOOPPYYRRIIGGHHTT
+              Free for non-commercial use.
+
+
+
+1.5                               07 Nov 2015                           man(1)

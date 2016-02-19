@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html><head>
+<title>replace</title>
+<meta name="description" content="replace renames a list of filenames" />
+<meta name="keywords" content="batch renamer, text manipulation" />
+<link rel="stylesheet" type="text/css" href="css/light.css" title="preferred" />
+<link rel="alternate stylesheet" type="text/css" href="css/evening.css" title="alternate1" />
+</head>
+<body>
+
+<div id="content">
+<img src="replace.png" alt="REPLACE" style={font-family: Georgia; color: #697c52; font-style: italic; font-size: 30px;}>
+
+<verdana>
+
+<h3>
+<div align="middle">version:    1.5         date:   10 Nov 2015 </div>
+
+<h2>NAME</h2>
+replace
+<blockquote>
+   Rename a list of filenames based upon a matching string 
+   and a replacement string. 
+</blockquote>
+
+<h2>USAGE</h2>
+<code>
+<font size="4" color="blue">
+<pre>
+replace   [-a] [-f] [-n &lt;int&gt;] [-t] [-q] [-v] [match] [replacement] [file list]
+          [-h]
+          [-u] [-v] [-t]
+          [-V]
+</pre>
+</font>
+</code>
+<h2>OPTIONS</h2>
+<code> 
+<font size="4" color="blue">
+<pre>
+       -a    --all      replace all matches in each filename
+
+       -f    --force    do not ask Y/N before renaming files
+
+       -h    --help     print this message
+
+       -n <int>   --num <int>     replace up to n matches per filename
+
+       -t    --test    test mode -- do not actually change filenames
+
+       -q    --quiet   rename files with no output
+
+       -u    --undo    reverse the last run of replace
+
+       -v    --verbose  print out lots of things as they happen
+
+       -V    --version  print out version
+</pre>
+</font>
+</code> 
+
+<h2>DESCRIPTION</h2><p>
+
+<font color="blue">replace</font> is a straightforward text substitution program
+that operates on lists of filenames.
+<p> 
+Its syntax is somewhat simpler than the regular expression syntax 
+of the <i>sed</i> and the <i>rename</i> utilities, 
+and it is less dangerous than the <i>tr</i> utility.
+<p>
+There are a few restrictions built in to stop bad things from happening.
+
+<h2>PREREQUISITES</h2>
+<blockquote>
+<pre>
+<font size="4">
+<i>required</i>:
+         ANSI C compiler
+         standard C library and headers
+<i>optional</i>: 
+         &lt;libgc&gt; garbage collector library <i>(autodetected)</i>
+
+</font>
+</pre
+</blockquote>
+<h2>QUICK INSTALL</h2>
+<blockquote>
+<pre>
+     make
+     sudo make install
+
+     The default installation is: 
+     FILE             DIR
+<hl>
+     replace          /usr/local/bin
+     replace.1        /usr/local/share/man/man1/replace.1
+     documentation    /usr/local/share/doc/replace
+</pre>
+</font>
+</code> 
+</blockquote>
+
+<h2>EXPLANATION</h2>
+<blockquote>
+ </blockquote>
+<pre>
+This utility does a chore that can be done with 
+the traditional unix tools, but then you have to
+know sed regular expressions, and that is a chore 
+within itself sometimes.
+
+The most common use for <font color="blue">replace</font> 
+would be for changing the name of
+a group of files in a directory, for some reason. 
+
+
+replace simply searches a list of filenames given
+to it, matches a string in their names, replaces it 
+with a replacement string, and renames the files accordingly.
+<p>
+It has a test mode to make sure the replacement is warranted as typed,
+protections and warnings agains super-use (use by root or sudo),
+and takes some basic precautions like not creating illegal filenames,
+not overwriting existing files, and avoiding problematic file names
+such as leading dashes or slashes or punctuation marks, and double spaces.
+<p>
+It will also not create the files <font color="green">&quot;.&quot;</font> and <font color="green"> &quot;..&quot;</font> , as these are aliases for
+the current and parent directory to the current working directory 
+in unix-like operating systems. 
+<h3>Directory names, directories being files themselves, are valid input to <font color="blue">replace</font>.<h3> 
+</pre>
+  
+<h2>INTERACTIVE</h2>
+Interactive mode is the safest if not the most efficient way to use <font color="blue">replace</font>. 
+<p>
+It asks the user for a yes or no before each file is renamed.
+<p>
+
+<i>Force mode (-f)</i> goes ahead without user interaction.<br>
+It is quite convenient and fast, but should not be used thoughtlessly or
+serious messing-up of directories full of files may result.
+
+
+<h2>UNDO</h2><p>
+
+One level of undo is implemented.<br>
+When run an undo file is created that can reverse the last run of the program.<br>
+The file is placed in the users home directory in the subdirectory <font color="green">".replace" </font>.<br>
+The default undo file name is <i>replace_undo  ($HOME/.replace/replace_undo)</i>.<br>
+<pre>
+<i>replace_undo</i> is a plain text file with file name pairs, one pair per line, of
+the original file name and the new one. Upon an undo operation, each
+line is taken up and the file is renamed from its new name back to 
+its original name in a kind of short-cut operation without calculation.
+</pre>
+ 
+<h3>Quick undo is not to be relied on, but it could save some work 
+if and when an oops momemt happens. </h3>
+
+Test mode is the recommended way to see what would happen. <b><i>Please.</i></b>
+<p>
+
+<h2>FILES</h2>
+<blockquote>
+<pre>
+       /usr/local/bin/replace                program binary 
+
+       $HOME/.replace/replace_undo           user undo file (text) 
+
+       /usr/local/share/man/man1/replace.1   man page for replace
+
+       /usr/local/share/doc/replace/         documentation for replace 
+</pre>
+</blockquote>
+
+<h2>EXAMPLES</h2>
+<pre>
+<blockquote>
+change all .doc files to .txt because they are actually plain text files. 
+<p>
+<code>
+<font size="4" color="blue">
+$ replace  .doc .txt *
+</font>
+</code>
+<font size="3">
+     (The shell expands the asterisk to all files in the dir, and those 
+     not matching are ignored. if there was already a .txt file in the directory
+     that would be overwriten, the program halts before that happens.)
+     (Please see the man page for replace(1) for some more examples.)
+</font> 
+<code>
+<font size="4" color="blue">
+replace  2105  2015 *
+</font>
+</code>
+<font size="3">
+fix a typo in filenames
+<font>
+<code> 
+<font size="4" color="blue">
+      replace  -t -v  -n 2  00 0 *.jpg
+</font>
+</code>
+<font size="3">
+     test only the result(s) of
+     replacing a double-zero with a single one
+     with a max of two matches per file
+</font>
+<font size="4" color="0x330099">
+ 002_CONCERT_007002.jpg ==> O2_CONCERT_07002.jpg
+</font>
+<h3>     (hint:  use * for all files in dir)</h3>
+<code>
+<font size="4" color="blue">
+       replace -uvf
+</font>
+</code>
+     undo the last rename operation
+     print out operations
+     do not stop for user input (Y/N)
+</blockquote>
+</pre>
+
+<h2>BUGS</h2>
+<pre>
+<font size="4" color="0x660099">
+Edge cases:
+
+Substitutions may attempt to rename files to names that already exist in the path.
+<font color="blue"><i>replace</i></font> will abort before any files are destroyed or overwritten. 
+This could lead to a situation wherein some files are renamed, and some are not.
+
+Multiple sequential runs of the undo function are <u>not</u> reversible.
+To redo after an undo you must re-run <font color="blue"><i>replace<i/></font> with the original parameters.
+
+The undo file is updated for each successful rename, but only for the last complete run. 
+It is recommended to use the -t test flag before any complicated operation.
+That way you may judge the results before executing a batch rename command.
+</font>
+</pre>
+
+<h2>COPYRIGHT</h2>
+
+<i>Free for non-commercial use.</i>
+
+
+<h2>AUTHOR</h2><p>
+author      : Chris Reid <a href="mailto:spikeysnack&#64;gmail.com">spikeysnack&#64;gmail.com</a>
+<h2>SEE ALSO</h2>
+<blockquote>
+     crop(1)	rename(1)
+</div>
+</body>
+</html>

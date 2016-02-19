@@ -1,0 +1,90 @@
+@import url("base.css");
+
+a,h1,h2,h3,h4,b {color: #08f;}
+h1 {
+	color: #f80;
+}
+span {
+	color:lightblue;
+}
+table, td, th {
+	border:1px solid #444;
+	padding:0 5px;
+}
+th {background-color: #024;}
+body {
+	color: white;
+	background-color: #0e2032;
+	/* IE10 Consumer Preview */ 
+	background-image: -ms-linear-gradient(right, #3577BA 0%, #0D1D2E 100%);
+
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(right, #3577BA 0%, #0D1D2E 100%);
+
+	/* Opera */ 
+	background-image: -o-linear-gradient(right, #3577BA 0%, #0D1D2E 100%);
+
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #3577BA), color-stop(1, #0D1D2E));
+
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(right, #3577BA 0%, #0D1D2E 100%);
+
+	/* W3C Markup, IE10 Release Preview */ 
+
+	background-image: url('../images/bg/speaker-setting-music-page-filetraffic-net-327956.jpg');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+}
+#content {
+	border:1px solid black;
+	background-color: rgba(0,0,0,0.8);
+}
+.rolldown { 
+	color:#ebebeb;
+	/* padding: 0 0; */
+}
+.rolldown:before {
+	background-image: url('knob_blue.png');
+}
+a.imaged {
+	background-image: url('button_eq.png');
+}
+a.imaged:hover {
+	background-image: url('button_eq.png');
+}
+
+/* desert scheme ported from vim to google prettify */
+code.prettyprint { display: inline-block; background-color: #333 }
+code .nocode { background-color: none; color: #222 }
+code .str { color: #ffa0a0 } /* string  - pink */
+code .kwd { color: #f0e68c; font-weight: bold }
+code .com { color: #87ceeb } /* comment - skyblue */
+code .typ { color: #98fb98 } /* type    - lightgreen */
+code .lit { color: #cd5c5c } /* literal - darkred */
+code .pun { color: #fff }    /* punctuation */
+code .pln { color: #fff }    /* plaintext */
+code .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+code .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+code .atv { color: #ffa0a0 } /* attribute value - pink */
+code .dec { color: #98fb98 } /* decimal         - lightgreen */
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+@media print {
+  pre.prettyprint { background-color: none }
+  pre .str, code .str { color: #060 }
+  pre .kwd, code .kwd { color: #006; font-weight: bold }
+  pre .com, code .com { color: #600; font-style: italic }
+  pre .typ, code .typ { color: #404; font-weight: bold }
+  pre .lit, code .lit { color: #044 }
+  pre .pun, code .pun { color: #440 }
+  pre .pln, code .pln { color: #000 }
+  pre .tag, code .tag { color: #006; font-weight: bold }
+  pre .atn, code .atn { color: #404 }
+  pre .atv, code .atv { color: #060 }
+}

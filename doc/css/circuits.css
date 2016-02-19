@@ -1,0 +1,59 @@
+@import url("base.css");
+
+a,h1,h2,h3,h4,b {color: #0080ff;}
+h1 {
+	color: #ff8000;
+}
+body {
+	color: black;
+	background-color: white;
+/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(right, #3577BA 0%, #0D1D2E 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(right, #3577BA 0%, #0D1D2E 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(right, #3577BA 0%, #0D1D2E 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #3577BA), color-stop(1, #0D1D2E));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(right, #3577BA 0%, #0D1D2E 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+
+	background-image: url('../images/bg/perfboard.png');
+}
+#content {
+	background-color: white;
+	border:1px solid black;
+	/* background-color: rgba(255,255,255,0.9); */
+	background-color: #fff;
+background-size: 100% 1.2em;
+background-image: -webkit-linear-gradient(#cee .05em, transparent .05em);
+background-image: -moz-linear-gradient(#cee .05em, transparent .05em);
+background-image: -ms-linear-gradient(#cee .05em, transparent .05em);
+background-image: -o-linear-gradient(#cee .05em, transparent .05em);
+background-image: linear-gradient(#cee .05em, transparent .05em);
+-pie-background: linear-gradient(#cee .05em, transparent .05em) 0 0 / 100% 1.2em #fff;
+behavior: url(/PIE.htc);
+}
+.rolldown { 
+	color:white;
+	text-shadow:1px 1px 0px #000000;
+	/* padding: 0 0; */
+}
+.rolldown:before {
+	background-image: url('knob.png');
+}
+a.imaged {
+	background-image: url('button_pcb.png');
+}
+a.imaged:hover {
+	background-image: url('button_pcb.png');
+}
+.myButton {
+	padding-left:14px;
+}
