@@ -7,7 +7,7 @@
 
 /* AUTHOR:  Chris Reid <spikeysnack@gmail.com> */
 /* LICENSE: Free for all purposes              */
-/* COPYRIGHT: 2015- Chris Reid                 */
+/* COPYRIGHT: 2016- Chris Reid                 */
 
 
 #ifndef _OPTIONS_H_
@@ -86,7 +86,7 @@ void options ( int argc, char** argv)
 	break;
 
       case 'h':
-	help();
+	help(stdout);
 	exit(EXIT_SUCCESS);
 	break;
 
@@ -111,12 +111,12 @@ void options ( int argc, char** argv)
 	break;
 
       case 'V':
-	version();
+	version(stdout);
 	exit(EXIT_SUCCESS);
 	break;
 	
       default: /* '?' */
-	usage(argv[0]);
+	usage(stderr);
 	exit(EXIT_FAILURE);
 	
       }// switch(opt)

@@ -4,7 +4,7 @@
 
 /* AUTHOR:  Chris Reid <spikeysnack@gmail.com> */
 /* LICENSE: Free for all purposes              */
-/* COPYRIGHT: 2015- Chris Reid                 */
+/* COPYRIGHT: 2016- Chris Reid                 */
 
 
 #ifndef _HELP_H_
@@ -15,9 +15,10 @@
 extern bool verbose;
 
 /* function prototypes */
-void usage();
-void help();
-void version();
+void usage        ( FILE* fp );
+void help         ( FILE* fp );
+void version      ( FILE* fp );
+void root_warning ( FILE* fp );
 
 /*-------------------------------------------*/
 /* usage  (function)                         */
@@ -33,9 +34,9 @@ void version();
 /*     none                                  */
 /*                                           */
 
-void usage()
+void usage( FILE* f )
 {
-  version();
+  version(f);
   char* usage_str = 
   "usage: replace <string1>  <string2> <filename1> [ <filename2> ...]\n"
   "                  -a,        --all           replace all matches in each filename  \n"
@@ -49,7 +50,7 @@ void usage()
   "                  -V         --version       print out version \n\n"
   "		     (hint:  use * for all files in dir) \n";
 
-  fprintf( stdout , "%s\n" , usage_str );
+  fprintf( f , "%s\n" , usage_str );
 }
 
 /*-------------------------------------------*/
@@ -67,19 +68,20 @@ void usage()
 /*     none                                  */
 /*                                           */
 
-void help()
+void help( FILE * f )
 {
   printf("replace changes a matching string in all of a list of filenames.\n" ); 
-  usage();
+
+  usage(f);
+
   char* example = 
     "Examples: \n"
     "replace  .txt .doc *       [ change suffix of all txt files]\n"
-    "replace  2105  2015 *      [ fix typo in filenames ]\n"
+    "replace  2106  2016 *      [ fix typo in filenames ]\n"
     "replace  -t -v  LEROY_JENKINS   \"\" *.jpg      [ verbosely test results of cropping\n" 
     "                                                    an unwanted word from jpg files   ]\n";
 
-  printf("%s\n" , example);
-
+  fprintf( f, "%s\n" , example);
 
 }
 
@@ -100,12 +102,12 @@ void help()
 /*     relies on definitions in (replace.c)  */
 /*                                           */
 
-void version()
+void version( FILE* f)
 {
 #ifndef REPLACE_VERSION
 #error REPLACE_VERSION is not Defined yet
 #endif
-  fprintf(stdout, "%s version:\t %s  date:\t%s\n", "replace",  REPLACE_VERSION, REPLACE_DATE );
+  fprintf( f , "%s version:\t %s  date:\t%s\n", "replace",  REPLACE_VERSION, REPLACE_DATE );
 }
 
 /*-------------------------------------------*/
@@ -133,10 +135,10 @@ void version()
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
-void root_warning()
+void root_warning( FILE* fp)
 {
-  fprintf(stderr, ANSI_COLOR_RED "[WARNING! -- super user mode.\n Renaming system files could destroy your system].\n");
-  fprintf(stderr, ANSI_COLOR_RESET );
+  fprintf( fp, ANSI_COLOR_RED "[WARNING! -- super user mode.\n Renaming system files could destroy your system].\n");
+  fprintf( fp, ANSI_COLOR_RESET );
 }
 
 

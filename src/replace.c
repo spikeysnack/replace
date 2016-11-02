@@ -4,7 +4,7 @@
 
 /* AUTHOR:  Chris Reid <spikeysnack@gmail.com> */
 /* LICENSE: Free for all purposes              */
-/* COPYRIGHT: 2015- Chris Reid                 */
+/* COPYRIGHT: 2016- Chris Reid                 */
 
 /* The main workhorse functions                */  
 /* are in replace.h and utils.h.               */
@@ -12,8 +12,8 @@
 
 #define _GNU_SOURCE
 
-#define REPLACE_VERSION          "1.5"
-#define REPLACE_DATE             "7 Nov 2015"
+#define REPLACE_VERSION          "1.6"
+#define REPLACE_DATE             "1 Nov 2016"
 
 #define REPLACE_UNDO_DIR_NAME         ".replace"
 #define REPLACE_UNDO_FILE_NAME        "replace_undo"
@@ -107,14 +107,14 @@ int main ( int argc, char** argv, char** env)
 
   if (argc  < 2 )  /* gotta have at least 2 arguments */
     {
-      usage();
+      usage(stderr);
       return_code = EXIT_FAILURE;
       goto bye;
     }
 
   setlocale(LC_CTYPE, ""); /* we know the characters if we set baseline locale */
 
-  if (geteuid() == 0) root_warning(); /* root is dangerous */
+  if (geteuid() == 0) root_warning(stderr); /* root is dangerous */
 
   /* if we can't set an undo file we are broken */
 

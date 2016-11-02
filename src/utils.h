@@ -6,7 +6,7 @@
 
 /* AUTHOR:  Chris Reid <spikeysnack@gmail.com> */
 /* LICENSE: Free for all purposes              */
-/* COPYRIGHT: 2015- Chris Reid                 */
+/* COPYRIGHT: 2016- Chris Reid                 */
 
 
 #ifndef UTILS_H

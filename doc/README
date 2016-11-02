@@ -10,7 +10,7 @@ DESCRIPTION
 -----------------------------------------
 author      : Chris Reid
 category    : batch renaming
-copyright   : Copyright 2015
+copyright   : Copyright 2016
 country     : United States of America
 credits     : [Python Software Foundation, Free Software Foundation ]
 email       : spikeysnack@gmail.com
@@ -19,7 +19,7 @@ license     : Free for all non-commercial purposes.
               Modifications allowed but original attribution must be included. 
               See (http://creativecommons.org/licenses/by-nc/4.0/)
 maintainer  : chris Reid
-modification_date : 10 Oct 2015
+modification_date : 01 NOV 2016
 version     : 1.4
 status      : Release Candidate
 -----------------------------------------

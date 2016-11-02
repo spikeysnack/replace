@@ -2,7 +2,7 @@
 
 # AUTHOR:  Chris Reid <spikeysnack@gmail.com> #
 # LICENSE: Free for all purposes              #
-# COPYRIGHT: 2015- Chris Reid                 #
+# COPYRIGHT: 2016- Chris Reid                 #
 
 
 # modification allowed 
@@ -74,7 +74,7 @@ distclean:	clean
 
 # make tarball for distribution
 dist:	distclean
-	cd .. ; tar czf replace-1.5.tgz --exclude devel replace/ ; mv replace-1.5.tgz replace/ 
+	cd .. ; tar czf replace-1.6.tgz --exclude devel replace/ ; mv replace-1.6.tgz replace/ 
 
 test:	replace
 	$(MAKE) -C tests test
