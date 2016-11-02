@@ -1,4 +1,5 @@
-[!alt txt][logo]
+[!alt text][logo]
+
 [logo]: https://github.com/spikeysnack/replace/raw/master/doc/replace.png "replace"
 
 #replace
