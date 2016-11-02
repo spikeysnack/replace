@@ -1,3 +1,5 @@
+[logo]: https://github.com/spikeysnack/replace/blob/master/doc/replace.png "crop"
+
 #replace
 
 ##DESCRIPTION
@@ -94,3 +96,4 @@ It is a straightforward text substitution that operates on lists of filenames,
 with a few restrictions built in to stop bad things from happening, somewhat
 simpler than the  regular expression syntax of sed and the rename utility, 
 and less dangerous than the tr utility.
+
