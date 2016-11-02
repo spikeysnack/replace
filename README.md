@@ -1,7 +1,4 @@
-[!alt text][logo]
-
-[logo]:(doc/replace.png?raw=truen  "replace")
-
+![crop](doc/replace.png?raw=true  "replace")
 
 ##replace
 
