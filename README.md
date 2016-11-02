@@ -1,8 +1,8 @@
 [!alt text][logo]
 
-[logo]: https://github.com/spikeysnack/replace/raw/master/doc/replace.png "replace"
+[logo]: https://github.com/spikeysnack/replace/blob/master/doc/replace.png "replace"
 
-#replace
+##replace
 
 ##DESCRIPTION
     Rename a list of filenames based upon a matching string 
