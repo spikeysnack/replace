@@ -7,31 +7,31 @@
     and a replacement string.
 
 
-author      : Chris Reid
+####author      : Chris Reid
 
-category    : batch renaming
+####category    : batch renaming
 
-copyright   : Copyright 2016
+####copyright   : Copyright 2016
 
-country     : United States of America
+####country     : United States of America
 
-credits     : [Python Software Foundation, Free Software Foundation ]
+####credits     : [Python Software Foundation, Free Software Foundation ]
 
-email       : spikeysnack@gmail.com
+####email       : spikeysnack@gmail.com
 
-file        : replace
+####file        : replace
 
-license     : Free for all non-commercial purposes. 
-              Modifications allowed but original attribution must be included. 
-              See (http://creativecommons.org/licenses/by-nc/4.0/)
+####license     : Free for all non-commercial purposes. 
+#####              Modifications allowed but original attribution must be included. 
+#####              See (http://creativecommons.org/licenses/by-nc/4.0/)
 
-maintainer  : chris Reid
+####maintainer  : chris Reid
 
-modification_date : 01 Nov 2016
+####modified    : 01 Nov 2016
 
-version     : 1.4
+####version     : 1.4
 
-status      : Release Candidate
+####status      : Release Candidate
 
 
 ###QUICK INSTALL:
@@ -53,18 +53,28 @@ replace simply searches a list of filenames given
 to it, matches a string in their names, replaces it 
 with a replacement string, and renames the files accordingly.
 
-It has: 
-	* a test mode to make sure the replacement is warranted as typed,
-	* protections and warnings agains super-use (use by root or sudo),
-	* basic precautions 
-            * like not creating illegal filenames,
-	    * not overwriting existing files
-	    * avoiding problematic file names
-	      such as leading dashes or slashes or punctuation marks, and double spaces.
+####features
+	
+	* a test mode to make sure the replacement is warranted as typed.
 
-	    * It will also not create the files "." and ".." , as these are aliase for
-	      the current and parent directory to the current working directory 
-	      in unix-like operating systems. 
+	* protections and warnings agains super-use (use by root or sudo).
+
+	* basic precautions 
+
+            * like not creating illegal filenames
+
+	    * not overwriting existing files
+
+	    * avoiding problematic file names such as 
+		leading dashes 
+		leading slashes 
+		punctuation marks 
+		double spaces
+
+	    * It will also not create the files "." and ".." , 
+		as these are aliase for the current 
+		and parent directory to the current working directory 
+	      	in unix-like operating systems. 
 	
 	* Directory names, directories being files themselves, are valid input to replace. 
   
@@ -72,6 +82,7 @@ It has:
 ###INTERACTIVE
 
 Interactive mode is the safest if not the most efficient way to use replace. 
+
 	It asks the user for a yes or no before each file is renamed.
 
 	Force mode (-f) goes ahead without user interaction. 
@@ -80,6 +91,7 @@ Interactive mode is the safest if not the most efficient way to use replace.
 
 ###UNDO
 One level of undo is implemented.
+
 	when run an undo file is created that can reverse the last run of the program.
 	The file is placed in the users home directory in the subdirectory [.replace].
 	The default undo file name is replace_undo. ($HOME/.replace/replace_undo).
