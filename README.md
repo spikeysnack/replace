@@ -1,6 +1,7 @@
 [!alt text][logo]
 
-[logo]: https://github.com/spikeysnack/replace/blob/master/doc/replace.png "replace"
+[logo]:(doc/replace.png?raw=truen  "replace")
+
 
 ##replace
 
