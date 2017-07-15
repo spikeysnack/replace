@@ -1,40 +1,40 @@
 ![crop](doc/replace.png?raw=true  "replace")
 
-##replace
+## replace
 
-###DESCRIPTION
+### DESCRIPTION
     Rename a list of filenames based upon a matching string 
     and a replacement string.
 
 
-####author      : Chris Reid
+#### author      : Chris Reid
 
-####category    : batch renaming
+#### category    : batch renaming
 
-####copyright   : Copyright 2016
+#### copyright   : Copyright 2016
 
-####country     : United States of America
+#### country     : United States of America
 
-####credits     : [Python Software Foundation, Free Software Foundation ]
+#### credits     : [Python Software Foundation, Free Software Foundation ]
 
-####email       : spikeysnack@gmail.com
+#### email       : spikeysnack@gmail.com
 
-####file        : replace
+#### file        : replace
 
-####license     : Free for all non-commercial purposes. 
+#### license     : Free for all non-commercial purposes. 
 #####              Modifications allowed but original attribution must be included. 
 #####              See (http://creativecommons.org/licenses/by-nc/4.0/)
 
-####maintainer  : chris Reid
+#### maintainer  : chris Reid
 
-####modified    : 01 Nov 2016
+#### modified    : 01 Nov 2016
 
-####version     : 1.4
+#### version     : 1.4
 
-####status      : Release Candidate
+#### status      : Release Candidate
 
 
-###QUICK INSTALL:
+### QUICK INSTALL:
       make
       sudo make install
 
@@ -43,7 +43,7 @@
     		replace.1        /usr/local/share/man/man1/replace.1
     
 
-###EXPLANATION 
+### EXPLANATION 
      
 This utility does a chore that can be done with the traditional unix tools, 
 but then you have to know *sed* regular expressions, and that is a chore 
@@ -53,7 +53,7 @@ replace simply searches a list of filenames given
 to it, matches a string in their names, replaces it 
 with a replacement string, and renames the files accordingly.
 
-####features
+#### features
 	
 	* a test mode to make sure the replacement is warranted as typed.
 
@@ -79,7 +79,7 @@ with a replacement string, and renames the files accordingly.
 	* Directory names, directories being files themselves, are valid input to replace. 
   
 
-###INTERACTIVE
+### INTERACTIVE
 
 Interactive mode is the safest if not the most efficient way to use replace. 
 
@@ -89,7 +89,7 @@ Interactive mode is the safest if not the most efficient way to use replace.
 	It is quite convenient and fast ,but should not be used thoughtlessly or
 	serious messing-up of directories full of files may result. 
 
-###UNDO
+### UNDO
 One level of undo is implemented.
 
 	when run an undo file is created that can reverse the last run of the program.
@@ -107,12 +107,12 @@ One level of undo is implemented.
 	Test mode is the recommended way to see what would happen.Please.
 
 
-###USAGE
+### USAGE
 The most common use for replace would be for changing the name of
 a group of files in a directory, for some reason. 
 
 
-###Example
+### Example
 
 	change all .doc files to .txt because they are actually plain text files.
 
@@ -124,10 +124,9 @@ a group of files in a directory, for some reason.
 
 		      (Please see the man page for replace(1) for some more examples)
 
-###NOTE
+### NOTE
 It is a straightforward text substitution that operates on lists of filenames,
 with a few restrictions built in to stop bad things from happening, somewhat
 simpler than the  regular expression syntax of sed and the rename utility, 
 and less dangerous than the tr utility.
-
 
